@@ -117,7 +117,7 @@ class TestPetShop < Minitest::Test
     assert_equal(2, pets.count)
   end
 
-#A test to see if it will count other breeds. Need to use a for loop to search through the collection 
+#A test to see if it will count other breeds. Need to use a for loop to search through the collection  (same as above)
   def test_all_pets_by_breed__not_found
     pets = pets_by_breed(@pet_shop, "Dalmation")
     assert_equal(0, pets.count)
@@ -128,60 +128,60 @@ class TestPetShop < Minitest::Test
     assert_equal("Arthur", pet[:name])
   end
 
-  # def test_find_pet_by_name__returns_nil
-  #   pet = find_pet_by_name(@pet_shop, "Fred")
-  #   assert_equal(nil, pet)
-  # end
+  def test_find_pet_by_name__returns_nil
+    pet = find_pet_by_name(@pet_shop, "Fred")
+    assert_equal(nil, pet)
+  end
 
-  # def test_remove_pet_by_name
-  #   remove_pet_by_name(@pet_shop, "Arthur")
-  #   pet = find_pet_by_name(@pet_shop,"Arthur")
-  #   assert_equal(nil, pet)
-  # end
+  def test_remove_pet_by_name
+    remove_pet_by_name(@pet_shop, "Arthur")
+    pet = find_pet_by_name(@pet_shop,"Arthur")
+    assert_equal(nil, pet)
+  end
 
-  # def test_add_pet_to_stock
-  #   add_pet_to_stock(@pet_shop, @new_pet)
-  #   count = stock_count(@pet_shop)
-  #   assert_equal(7, count)
-  # end
+  def test_add_pet_to_stock
+    add_pet_to_stock(@pet_shop, @new_pet)
+    count = stock_count(@pet_shop)
+    assert_equal(7, count)
+  end
 
-  # def test_customer_pet_count
-  #   count = customer_pet_count(@customers[0])
-  #   assert_equal(0, count)
-  # end
+  def test_customer_pet_count
+    count = customer_pet_count(@customers[0])
+    assert_equal(0, count)
+  end
 
-  # def test_add_pet_to_customer
-  #   customer = @customers[0]
-  #   add_pet_to_customer(customer, @new_pet)
-  #   assert_equal(1, customer_pet_count(customer))
-  # end
+  def test_add_pet_to_customer
+    customer = @customers[0]
+    add_pet_to_customer(customer, @new_pet)
+    assert_equal(1, customer_pet_count(customer))
+  end
 
   # # OPTIONAL
 
-  # def test_customer_can_afford_pet__insufficient_funds
-  #   customer = @customers[1]
-  #   can_buy_pet = customer_can_afford_pet(customer, @new_pet)
-  #   assert_equal(false, can_buy_pet)
-  # end
+  def test_customer_can_afford_pet__insufficient_funds
+    customer = @customers[1]
+    can_buy_pet = customer_can_afford_pet(customer, @new_pet)
+    assert_equal(false, can_buy_pet)
+  end
 
-  # def test_customer_can_afford_pet__sufficient_funds
-  #   customer = @customers[0]
-  #   can_buy_pet = customer_can_afford_pet(customer, @new_pet)
-  #   assert_equal(true, can_buy_pet)
-  # end
+  def test_customer_can_afford_pet__sufficient_funds
+    customer = @customers[0]
+    can_buy_pet = customer_can_afford_pet(customer, @new_pet)
+    assert_equal(true, can_buy_pet)
+  end
 
-  # #These are 'integration' tests so we want multiple asserts.
-  # #If one fails the entire test should fail
-  # def test_sell_pet_to_customer__pet_found
-  #   customer = @customers[0]
-  #   pet = find_pet_by_name(@pet_shop,"Arthur")
+  #These are 'integration' tests so we want multiple asserts.
+  #If one fails the entire test should fail
+  def test_sell_pet_to_customer__pet_found
+    customer = @customers[0]
+    pet = find_pet_by_name(@pet_shop,"Arthur")
 
-  #   sell_pet_to_customer(@pet_shop, pet, customer)
+    sell_pet_to_customer(@pet_shop, pet, customer)
 
-  #   assert_equal(1, customer_pet_count(customer))
-  #   assert_equal(1, pets_sold(@pet_shop))
-  #   assert_equal(1900, total_cash(@pet_shop))
-  # end
+    assert_equal(1, customer_pet_count(customer))
+    assert_equal(1, pets_sold(@pet_shop))
+    assert_equal(1900, total_cash(@pet_shop))
+  end
 
   # def test_sell_pet_to_customer__pet_not_found
   #   customer = @customers[0]
